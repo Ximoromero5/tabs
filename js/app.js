@@ -12,30 +12,37 @@ $(document).ready(function () {
             let box = $('<div></div>');
 
             $.each(data, function (index, obj) {
-                let newLabel = (obj.new == true) ? 'New' : '';
-                let featuredLabel = obj.featured == true ? 'Featured' : '';
+                let newLabel = (obj.new == true) ? '<label class="new">NEW!</label>' : '';
+                let featuredLabel = obj.featured == true ? '<label class="featured">FEATURED</label>' : '';
 
                 let item = $(`
                 <div class='item'>
                     <div class='left'>
                         <img src='${obj.logo}'>
-                        <div class='top'>
-                            <h5>${obj.company}</h5>
-                            <label>${newLabel}</label>
-                            <label>${featuredLabel}</label>
-                        </div>
-                        <div class='middle'>
-                            <h3>${obj.position}</h3>
-                        </div>
-                        <div class='bottom'>
-                        <span>${obj.postedAt}</span>
-                        <span>${obj.contract}</span>
-                        <span>${obj.location}</span>
+                        <div class='text'>
+                            <div class='top'>
+                                <h5>${obj.company}</h5>
+                                ${newLabel}
+                                ${featuredLabel}
+                            </div>
+                            <div class='middle'>
+                                <h1>${obj.position}</h1>
+                            </div>
+                            <div class='bottom'>
+                                <div>${obj.postedAt}</div>
+                                <span class='dot'></span>
+                                <div>${obj.contract}</div>
+                                <span class='dot'></span>
+                                <div>${obj.location}</div>
+                            </div>
                         </div>
                     </div>
-                    <div clas='right'>
+                    <div class='right'>
                         <ul>
-                            ${ $.each(obj.languages, function (index, it) { `<li>${it}</li>` })}
+                            <li>${obj.role}</li>
+                            <li>${obj.level}</li>   
+                            <li>${ $.each(obj.languages, function (index, lenguage) { lenguage })}</li>
+                            <li>${ $.each(obj.tools, function (index, tool) { tool })}</li>
                         </ul>
                     </div>
                 </div>
