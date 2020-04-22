@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+}
+/*# sourceMappingURL=styles.css.map */
