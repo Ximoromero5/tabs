@@ -176,6 +176,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #container .item .right ul li {
@@ -188,5 +190,11 @@ body {
   color: #5ba4a4;
   font-size: 15px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #container .item .right ul li {
+    margin: 5px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -41,11 +41,7 @@ $(document).ready(function () {
                         <ul>
                             <li>${obj.role}</li>
                             <li>${obj.level}</li>  
-                            <li>${
-                    $.map(obj.languages, function (e, i) {
-                        $(`<li>${e}</li>`)
-                    })
-                    }</li>
+                            <li>${ $.each(obj.languages, function (index, language) { language })}</li>
                             <li>${ $.each(obj.tools, function (index, tool) { tool })}</li>
                         </ul>
                     </div>
