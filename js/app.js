@@ -12,8 +12,8 @@ $(document).ready(function () {
             let box = $('<div></div>');
 
             $.each(data, function (index, obj) {
-                let newLabel = (obj.new == true) ? '<label class="new">NEW!</label>' : '';
-                let featuredLabel = obj.featured == true ? '<label class="featured">FEATURED</label>' : '';
+                let newLabel = (obj.new == true) ? '<button class="new">NEW!</button>' : '';
+                let featuredLabel = obj.featured == true ? '<button class="featured">FEATURED</button>' : '';
 
                 let item = $(`
                 <div class='item'>
@@ -40,14 +40,17 @@ $(document).ready(function () {
                     <div class='right'>
                         <ul>
                             <li>${obj.role}</li>
-                            <li>${obj.level}</li>   
-                            <li>${ $.each(obj.languages, function (index, lenguage) { lenguage })}</li>
+                            <li>${obj.level}</li>  
+                            <li>${
+                    $.map(obj.languages, function (e, i) {
+                        $(`<li>${e}</li>`)
+                    })
+                    }</li>
                             <li>${ $.each(obj.tools, function (index, tool) { tool })}</li>
                         </ul>
                     </div>
                 </div>
                 `);
-
                 $(box).append($(item));
             });
 
