@@ -33,6 +33,13 @@ body {
   margin: 50px auto;
 }
 
+@media (max-width: 768px) {
+  #container {
+    width: 100%;
+    margin: auto;
+  }
+}
+
 #container .item {
   border: none;
   background-color: #ffffff;
@@ -50,16 +57,26 @@ body {
   padding: 35px;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
   cursor: pointer;
 }
 
 #container .item:hover {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  #container .item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 15px;
+  }
 }
 
 #container .item .left {
@@ -129,6 +146,12 @@ body {
           justify-content: space-evenly;
 }
 
+@media (max-width: 768px) {
+  #container .item .left .text .bottom {
+    font-size: 12px;
+  }
+}
+
 #container .item .left .text .bottom .dot {
   width: 4px;
   height: 4px;
@@ -140,6 +163,12 @@ body {
 #container .item .left .text .bottom div {
   font-weight: bold;
   color: #7a8585;
+}
+
+@media (max-width: 768px) {
+  #container .item .right {
+    margin-top: 20px;
+  }
 }
 
 #container .item .right ul {
