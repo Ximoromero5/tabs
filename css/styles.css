@@ -116,6 +116,7 @@ body {
   line-height: 6px;
   padding: 7px;
   border: none;
+  outline: 0;
 }
 
 #container .item .left .text .top .new {
