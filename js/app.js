@@ -61,14 +61,12 @@ $(document).ready(function () {
         }); //Fin done
     }
 
-    //
     function languages(arr) {
         if (!arr) {
             return '';
         }
 
-        const html = arr.map(lang => `<li data-languages='${lang}'>${lang}</li>`).join('');
-        return html;
+        return arr.map(lang => `<li data-languages='${lang}'>${lang}</li>`).join('');
     }
 
     function tools(arr) {
