@@ -145,7 +145,8 @@
       "JavaScript"
     ],
     "tools": [
-      "Vue, Sass"
+      "Vue",
+      "Sass"
     ]
   },
   {
