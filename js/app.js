@@ -38,11 +38,11 @@ $(document).ready(function () {
                         </div>
                     </div>
                     <div class='right'>
-                        <ul>
+                        <ul id='list'>
                             <li>${obj.role}</li>
                             <li>${obj.level}</li>  
-                            <li>${ $.each(obj.languages, function (index, language) { language })}</li>
-                            <li>${ $.each(obj.tools, function (index, tool) { tool })}</li>
+                            ${languages(obj.languages)}
+                            ${tools(obj.tools)}
                         </ul>
                     </div>
                 </div>
@@ -54,5 +54,34 @@ $(document).ready(function () {
             console.log(data);
         });
     }
+
+    //
+    function languages(arr) {
+        if (!arr) {
+            return '';
+        }
+
+        const html = arr.map(lang => `<li>${lang}</li>`).join('');
+        return html;
+    }
+
+    function tools(arr) {
+        if (!arr) {
+            return '';
+        }
+
+        return arr.map(tool => `<li>${tool}</li>`).join('');
+    }
+
+    function userData() {
+        $.ajax({
+            url: 'http://www.geoplugin.net/json.gp',
+            method: 'GET'
+        }).done(function (data) {
+            console.log(data);
+        })
+    }
+
+    /* userData(); */
 
 });
