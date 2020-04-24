@@ -155,7 +155,7 @@ header {
 
 @media (max-width: 768px) {
   #container .item .left .text .bottom {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
