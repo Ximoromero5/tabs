@@ -16,7 +16,7 @@ $(document).ready(function () {
                 let featuredLabel = obj.featured == true ? '<button class="featured">FEATURED</button>' : '';
 
                 let item = $(`
-                <div class='item'>
+                <div class='item feature'>
                     <div class='left'>
                         <img src='${obj.logo}'>
                         <div class='text'>
