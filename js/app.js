@@ -12,8 +12,8 @@ $(document).ready(function () {
             let box = $('<div></div>');
 
             $.each(data, function (index, obj) {
-                let newLabel = (obj.new == true) ? '<button class="new">NEW!</button>' : '';
-                let featuredLabel = obj.featured == true ? '<button class="featured">FEATURED</button>' : '';
+                let newLabel = obj.new ? '<button class="new">NEW!</button>' : '';
+                let featuredLabel = obj.featured ? '<button class="featured">FEATURED</button>' : '';
 
                 let item = $(`
                 <div class='item feature'>
@@ -38,9 +38,9 @@ $(document).ready(function () {
                         </div>
                     </div>
                     <div class='right'>
-                        <ul id='list'>
-                            <li>${obj.role}</li>
-                            <li>${obj.level}</li>  
+                        <ul class='list'>
+                            <li data-role='${obj.role}'>${obj.role}</li>
+                            <li data-level='${obj.level}'>${obj.level}</li>  
                             ${languages(obj.languages)}
                             ${tools(obj.tools)}
                         </ul>
@@ -51,8 +51,14 @@ $(document).ready(function () {
             });
 
             $(container).html($(box));
-            console.log(data);
-        });
+
+            $('.list li').each(function () {
+                $(this).click(function () {
+                    addFilter($(this).text());
+                });
+            });
+
+        }); //Fin done
     }
 
     //
@@ -61,7 +67,7 @@ $(document).ready(function () {
             return '';
         }
 
-        const html = arr.map(lang => `<li>${lang}</li>`).join('');
+        const html = arr.map(lang => `<li data-languages='${lang}'>${lang}</li>`).join('');
         return html;
     }
 
@@ -70,18 +76,22 @@ $(document).ready(function () {
             return '';
         }
 
-        return arr.map(tool => `<li>${tool}</li>`).join('');
+        return arr.map(tool => `<li data-tools='${tool}'>${tool}</li>`).join('');
     }
 
-    function userData() {
-        $.ajax({
-            url: 'http://www.geoplugin.net/json.gp',
-            method: 'GET'
-        }).done(function (data) {
-            console.log(data);
-        })
-    }
+    function addFilter(filter) {
+        $('.filterBox').addClass('active');
 
-    /* userData(); */
+        let element = `
+            <div class='itemFilter'>
+                <div class='name'>${filter}</div>
+                <div class='close'>
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        `;
+
+        $('.filterList').append($(element));
+    }
 
 });

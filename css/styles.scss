@@ -31,10 +31,75 @@ header {
     background-size: cover;
     background-color: #5ba4a4;
 }
+.filterBox {
+    display: none;
+}
+.filterBox.active {
+    display: block;
+    background-color: #fff;
+    display: flex;
+    padding: 20px 40px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 5px hsla(180, 29%, 50%, 0.2);
+    color: var(--Desaturated-Dark-Cyan);
+    font-weight: 700;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+    bottom: 40px;
+    min-height: 80px;
+    max-width: 1200px;
+    margin: auto;
+    @media (max-width: 768px) {
+        margin: 15px;
+    }
+    .filterList {
+        display: flex;
+        .itemFilter {
+            display: flex;
+            align-items: center;
+            .name {
+                padding: 6px;
+                background: #effafa;
+                margin-left: 15px;
+                font-weight: 900;
+                border-radius: 4px;
+                color: #5ba4a4;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            .close {
+                padding: 8px 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #5ba4a4;
+                border-radius: 0 4px 4px 0;
+                color: #f5f5f5;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.1s;
+                &:hover {
+                    background: hsl(180, 14%, 20%);
+                }
+            }
+        }
+    }
+    .clear {
+        color: #5ba4a4;
+        font-size: 15px;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
 
 #container {
     max-width: 1200px;
-    margin: 70px auto;
+    margin: auto;
     @media (max-width: 768px) {
         width: 100%;
         margin: auto;
@@ -123,7 +188,7 @@ header {
             @media (max-width: 768px) {
                 margin-top: 20px;
             }
-            ul {
+            ul.list {
                 display: flex;
                 flex-wrap: wrap;
                 li {
